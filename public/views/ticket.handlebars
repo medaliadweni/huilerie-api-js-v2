@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>HUILERIE<br />CHARFI</h1>
+        <p>{{warehouse.attributes.address}}</p>
+        <p>{{warehouse.attributes.phone}}</p>
+        <br>
+        <h3>BON D'ACHAT</h3>
+        <h3>N° {{id}}</h3>
+        <br>
+        <p>{{date}}</p>
+        <p>{{providerName}}</p>
+    </div>
+    <br>
+
+    <table style="width: 100%; border-width: 20px;">
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;"></td>
+            <td style="width: 20%;"></td>
+            <td style="width: 30%;">PU</td>
+            <td style="width: 30%;">PT</td>
+        </tr>
+        {{#each weighings}}
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;">BRUT:</td>
+            <td style="width: 20%;">{{this.attributes.gross}}</td>
+            <td style="width: 30%;"></td>
+            <td style="width: 30%;"></td>
+        </tr>
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;">TARE:</td>
+            <td style="width: 20%;">{{this.attributes.tare}}</td>
+            <td style="width: 30%;"></td>
+            <td style="width: 30%;"></td>
+        </tr>
+        <tr>
+            <td style="width: 10%;">{{this.attributes.index}}</td>
+            <td style="width: 20%;">NET:</td>
+            <td style="width: 20%;">{{this.attributes.net}}</td>
+            <td style="width: 30%;">{{this.attributes.unit_price}}</td>
+            <td style="width: 30%;">{{this.attributes.total_price}}</td>
+        </tr>
+        <tr>
+            <td style="color: white;">.</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <br>
+    <hr />
+    <br>
+    <h1 style="text-align: right; font-size: 20px;">Total à payer: <span
+            style="margin-left: 30px; font-size: 40px;">{{totalPaidFloor}}</span>
+    </h1>
+    <br>
+    <hr />
+
+    <hr style="border-style: dashed; margin: 40px 0px" />
+
+    <div style="text-align: center;">
+        <h1>HUILERIE<br />CHARFI</h1>
+        <p>{{warehouse.attributes.address}}</p>
+        <p>{{warehouse.attributes.phone}}</p>
+        <br>
+        <h3>BON D'ACHAT</h3>
+        <h3>N° {{id}}</h3>
+        <br>
+        <p>{{date}}</p>
+        <p>{{providerName}}</p>
+    </div>
+    <br>
+    <br>
+    <table style="width: 100%; border-width: 20px;">
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;"></td>
+            <td style="width: 20%;"></td>
+            <td style="width: 30%;">PU</td>
+            <td style="width: 30%;">PT</td>
+        </tr>
+        {{#each weighings}}
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;">BRUT:</td>
+            <td style="width: 20%;">{{this.attributes.gross}}</td>
+            <td style="width: 30%;"></td>
+            <td style="width: 30%;"></td>
+        </tr>
+        <tr>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%;">TARE:</td>
+            <td style="width: 20%;">{{this.attributes.tare}}</td>
+            <td style="width: 30%;"></td>
+            <td style="width: 30%;"></td>
+        </tr>
+        <tr>
+            <td style="width: 10%;">{{this.attributes.index}}</td>
+            <td style="width: 20%;">NET:</td>
+            <td style="width: 20%;">{{this.attributes.net}}</td>
+            <td style="width: 30%;">{{this.attributes.unit_price}}</td>
+            <td style="width: 30%;">{{this.attributes.total_price}}</td>
+        </tr>
+        <tr>
+            <td style="width: 10%; text-align: right;"><span style="font-style: italic;" >{{this.attributes.batchInfo.data.description}}</span></td>
+            <td style="width: 20%;"><span style="font-style: italic;" >({{this.attributes.batchInfo.data.date}}) </span></td>
+            <td style="width: 20%;"></td>
+            <td style="width: 30%;"></td>
+            <td style="width: 30%;"></td>
+        </tr>
+        <tr>
+            <td style="color: white;">.</td>
+        </tr>
+        {{/each}}
+    </table>
+    <br>
+    <table style="width: 100%; margin: 0px; padding: 0px;">
+        <tr>
+            <td style="width: 70%;">Total Bon</td>
+            <td style="width: 30%; text-align: right;">{{total}}</td>
+        </tr>
+        <tr>
+            <td style="width: 70%;">HAB</td>
+            <td style="width: 30%; text-align: right;">-{{hab}}</td>
+        </tr>
+        <tr>
+            <td style="width: 70%;">Total payé au client</td>
+            <td style="width: 30%; text-align: right;">{{totalPaid}}</td>
+        </tr>
+        <tr>
+            <td style="width: 70%;">DAL</td>
+            <td style="width: 30%; text-align: right;">+{{dal}}</td>
+        </tr>
+    </table>
+    <hr />
+    <br>
+    <h1 style="text-align: right; font-size: 20px;">Total payé: <span
+            style="margin-left: 30px; font-size: 40px;">{{fullProcurementPaymentValue}}</h1>
+    </p>
+    <br>
+    <hr />
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beneficaries",
+  "info": {
+    "singularName": "beneficary",
+    "pluralName": "beneficaries",
+    "displayName": "Beneficary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "cash_transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cash-transaction.cash-transaction",
+      "mappedBy": "beneficiary"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::provider.provider"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "beneficary"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "beneficaries"
+    }
+  }
+}

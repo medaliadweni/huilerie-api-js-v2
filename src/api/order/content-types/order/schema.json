@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "oil": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::oil.oil"
+    },
+    "quantity": {
+      "type": "decimal"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer"
+    },
+    "delivered_quantity": {
+      "type": "decimal",
+      "default": 0
+    },
+    "quantity_diff": {
+      "type": "decimal",
+      "default": 0
+    },
+    "unit_price": {
+      "type": "float",
+      "default": 0
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "OIL",
+        "POMACE",
+        "PIT",
+        "AOULA"
+      ],
+      "default": "OIL"
+    }
+  }
+}

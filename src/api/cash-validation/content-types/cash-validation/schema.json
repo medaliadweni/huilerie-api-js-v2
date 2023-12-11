@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cash_validations",
+  "info": {
+    "singularName": "cash-validation",
+    "pluralName": "cash-validations",
+    "displayName": "cash Validation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cash": {
+      "type": "decimal"
+    },
+    "real_cash": {
+      "type": "decimal"
+    },
+    "date": {
+      "type": "date"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales",
+  "info": {
+    "singularName": "sale",
+    "pluralName": "sales",
+    "displayName": "Sale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "sales"
+    },
+    "tank": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "sales"
+    },
+    "brut": {
+      "type": "float"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "OIL",
+        "FITOURA",
+        "AOULA"
+      ]
+    },
+    "unit_price": {
+      "type": "float"
+    },
+    "quantite_client": {
+      "type": "float"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "sales"
+    },
+    "tar": {
+      "type": "float"
+    },
+    "tva": {
+      "type": "float"
+    },
+    "address": {
+      "type": "string"
+    },
+    "driver": {
+      "type": "string"
+    },
+    "trailer": {
+      "type": "string"
+    },
+    "truck": {
+      "type": "string"
+    },
+    "notice": {
+      "type": "string"
+    }
+  }
+}

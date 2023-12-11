@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pile_bottoms",
+  "info": {
+    "singularName": "pile-bottom",
+    "pluralName": "pile-bottoms",
+    "displayName": "Pile Bottom"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "decimal",
+      "default": 0,
+      "required": true
+    },
+    "container": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::container.container",
+      "inversedBy": "pile_bottoms"
+    }
+  }
+}

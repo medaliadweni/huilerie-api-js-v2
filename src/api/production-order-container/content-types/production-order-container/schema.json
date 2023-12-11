@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "production_order_containers",
+  "info": {
+    "singularName": "production-order-container",
+    "pluralName": "production-order-containers",
+    "displayName": "ProductionOrderContainer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "container": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::container.container"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "OFF",
+        "ON"
+      ]
+    },
+    "production_order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::production-order.production-order",
+      "inversedBy": "production_order_containers"
+    },
+    "oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oil.oil",
+      "mappedBy": "production_order_container"
+    }
+  }
+}

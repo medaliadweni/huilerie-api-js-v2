@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cash_transactions",
+  "info": {
+    "singularName": "cash-transaction",
+    "pluralName": "cash-transactions",
+    "displayName": "Cash Transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "oldBeneficiary": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "payment_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::payment-category.payment-category",
+      "inversedBy": "cash_transactions"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CASH",
+        "CHEQUE",
+        "TRANSFER",
+        "EFFECT"
+      ]
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "employee_payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee-payment.employee-payment",
+      "mappedBy": "cash_transaction"
+    },
+    "beneficiary": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::beneficary.beneficary",
+      "inversedBy": "cash_transactions"
+    },
+    "weighing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::weighing.weighing",
+      "inversedBy": "cash_transaction"
+    },
+    "num_cheque": {
+      "type": "string"
+    },
+    "name_bank": {
+      "type": "string"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    },
+    "canceled_weighing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::canceled-weighing.canceled-weighing",
+      "inversedBy": "cash_transaction"
+    },
+    "procurement_payment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::procurement-payment.procurement-payment",
+      "inversedBy": "cash_transactions"
+    }
+  }
+}

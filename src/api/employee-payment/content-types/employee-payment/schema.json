@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employee_payments",
+  "info": {
+    "singularName": "employee-payment",
+    "pluralName": "employee-payments",
+    "displayName": "Employee Payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment": {
+      "type": "decimal"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CASH",
+        "CHEQUE",
+        "TRANSFER",
+        "EFFECT"
+      ],
+      "default": "CASH"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "cash_transaction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cash-transaction.cash-transaction",
+      "inversedBy": "employee_payment"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "employee_payments"
+    }
+  }
+}

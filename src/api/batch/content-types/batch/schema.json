@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "batches",
+  "info": {
+    "singularName": "batch",
+    "pluralName": "batches",
+    "displayName": "Batch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "batches"
+    },
+    "description": {
+      "type": "text"
+    },
+    "oil_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::oil-category.oil-category"
+    },
+    "total_weight": {
+      "type": "float",
+      "default": 0
+    },
+    "out_transports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport.transport",
+      "mappedBy": "from"
+    },
+    "in_transports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport.transport",
+      "mappedBy": "to"
+    },
+    "total_cost": {
+      "type": "decimal",
+      "default": 0
+    },
+    "weighings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::weighing.weighing",
+      "mappedBy": "batch"
+    },
+    "olive_extraction": {
+      "type": "float"
+    },
+    "oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oil.oil",
+      "mappedBy": "batch"
+    },
+    "transport_oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil.transport-oil",
+      "mappedBy": "batch"
+    },
+    "canceled_weighings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::canceled-weighing.canceled-weighing",
+      "mappedBy": "batch"
+    }
+  }
+}

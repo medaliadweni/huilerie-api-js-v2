@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "weighings",
+  "info": {
+    "singularName": "weighing",
+    "pluralName": "weighings",
+    "displayName": "Weighing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gross": {
+      "type": "float",
+      "required": true
+    },
+    "extruction_rate": {
+      "type": "float",
+      "required": true
+    },
+    "unit_price": {
+      "type": "float",
+      "required": true
+    },
+    "tare": {
+      "type": "float",
+      "required": true
+    },
+    "total_price": {
+      "type": "float"
+    },
+    "net": {
+      "type": "float"
+    },
+    "hab": {
+      "type": "float",
+      "default": 0
+    },
+    "dal": {
+      "type": "float",
+      "default": 0
+    },
+    "batch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "weighings"
+    },
+    "procurement": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::procurement.procurement",
+      "inversedBy": "weighings"
+    },
+    "tax": {
+      "type": "float"
+    },
+    "cash_transaction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cash-transaction.cash-transaction",
+      "mappedBy": "weighing"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "ACHAT",
+        "TRANSFERT",
+        "PRODUCTION",
+        "LOST_OLIVE"
+      ]
+    },
+    "transport_batch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::transport.transport",
+      "inversedBy": "weighing"
+    }
+  }
+}

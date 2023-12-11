@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "setting",
+    "pluralName": "settings",
+    "displayName": "Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "oil_procurement_price": {
+      "type": "decimal"
+    },
+    "hab_formula": {
+      "type": "json"
+    },
+    "dal_default": {
+      "type": "decimal",
+      "default": 10
+    }
+  }
+}

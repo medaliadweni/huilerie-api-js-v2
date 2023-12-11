@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "timesheets",
+  "info": {
+    "singularName": "timesheet",
+    "pluralName": "timesheets",
+    "displayName": "Timesheet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "timesheets"
+    },
+    "date": {
+      "type": "date"
+    },
+    "seconds": {
+      "type": "biginteger"
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}

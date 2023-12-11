@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oil_categories",
+  "info": {
+    "singularName": "oil-category",
+    "pluralName": "oil-categories",
+    "displayName": "Oil Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

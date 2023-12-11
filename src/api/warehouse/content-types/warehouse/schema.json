@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "warehouses",
+  "info": {
+    "singularName": "warehouse",
+    "pluralName": "warehouses",
+    "displayName": "Warehouse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "batches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::batch.batch",
+      "mappedBy": "warehouse"
+    },
+    "address": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "tanks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tank.tank",
+      "mappedBy": "warehouse"
+    },
+    "providers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::provider.provider",
+      "mappedBy": "warehouse"
+    },
+    "beneficaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::beneficary.beneficary",
+      "mappedBy": "warehouse"
+    }
+  }
+}

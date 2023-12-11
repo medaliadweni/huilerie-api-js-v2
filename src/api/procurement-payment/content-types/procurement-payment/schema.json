@@ -1,0 +1,153 @@
+{
+
+  "kind": "collectionType",
+
+  "collectionName": "procurement_payments",
+
+  "info": {
+
+    "singularName": "procurement-payment",
+
+    "pluralName": "procurement-payments",
+
+    "displayName": "Procurement Payment",
+
+    "description": ""
+
+  },
+
+  "options": {
+
+    "draftAndPublish": false
+
+  },
+
+  "pluginOptions": {},
+
+  "attributes": {
+
+    "type": {
+
+      "type": "enumeration",
+
+      "enum": [
+
+        "CASH",
+
+        "CHEQUE",
+
+        "TRANSFER",
+
+        "EFFECT"
+
+      ],
+
+      "default": "CASH"
+
+    },
+
+    "number": {
+
+      "type": "string"
+
+    },
+
+    "value": {
+
+      "type": "float"
+
+    },
+
+    "provider": {
+
+      "type": "relation",
+
+      "relation": "oneToOne",
+
+      "target": "api::provider.provider"
+
+    },
+
+    "comment": {
+
+      "type": "text"
+
+    },
+
+    "warehouse": {
+
+      "type": "relation",
+
+      "relation": "oneToOne",
+
+      "target": "api::warehouse.warehouse"
+
+    },
+
+    "user": {
+
+      "type": "relation",
+
+      "relation": "oneToOne",
+
+      "target": "plugin::users-permissions.user"
+
+    },
+
+    "procurements": {
+
+      "type": "relation",
+
+      "relation": "oneToMany",
+
+      "target": "api::procurement.procurement",
+
+      "mappedBy": "procurement_payment"
+
+    },
+
+    "cash_transactions": {
+
+      "type": "relation",
+
+      "relation": "oneToMany",
+
+      "target": "api::cash-transaction.cash-transaction",
+
+      "mappedBy": "procurement_payment"
+
+    },
+
+    "name_bank": {
+
+      "type": "string"
+
+    },
+
+    "num_cheque": {
+
+      "type": "string"
+
+    },
+
+    "date_creation": {
+
+      "type": "datetime"
+
+    },
+
+    "date_failure": {
+
+      "type": "datetime"
+
+    },
+
+    "interest": {
+
+      "type": "float"
+
+    }
+
+  }
+
+}

@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "containers",
+  "info": {
+    "singularName": "container",
+    "pluralName": "containers",
+    "displayName": "Container",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "decimal"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "pile_bottoms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pile-bottom.pile-bottom",
+      "mappedBy": "container"
+    },
+    "production_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::production-order.production-order",
+      "mappedBy": "containers"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "ON",
+        "OFF"
+      ],
+      "default": "OFF"
+    },
+    "indicators": {
+      "type": "biginteger"
+    },
+    "oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oil.oil",
+      "mappedBy": "container"
+    }
+  }
+}

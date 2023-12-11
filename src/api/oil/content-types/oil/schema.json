@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oils",
+  "info": {
+    "singularName": "oil",
+    "pluralName": "oils",
+    "displayName": "Oil",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "batch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "oils"
+    },
+    "container": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::container.container",
+      "inversedBy": "oils"
+    },
+    "weight": {
+      "type": "float",
+      "required": true
+    },
+    "unit_cost": {
+      "type": "decimal"
+    },
+    "tank": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "oils"
+    },
+    "production_order_container": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::production-order-container.production-order-container",
+      "inversedBy": "oils"
+    }
+  }
+}

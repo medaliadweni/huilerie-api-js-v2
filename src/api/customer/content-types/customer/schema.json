@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "details": {
+      "type": "text"
+    },
+    "sales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale.sale",
+      "mappedBy": "customer"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "sale_payements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale-payement.sale-payement",
+      "mappedBy": "customer"
+    },
+    "tel": {
+      "type": "string"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "customer"
+    },
+    "beneficary": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::beneficary.beneficary",
+      "mappedBy": "customer"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "canceled_weighings",
+  "info": {
+    "singularName": "canceled-weighing",
+    "pluralName": "canceled-weighings",
+    "displayName": "Canceled weighing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gross": {
+      "type": "decimal"
+    },
+    "extruction_rate": {
+      "type": "decimal"
+    },
+    "unit_price": {
+      "type": "float"
+    },
+    "tare": {
+      "type": "decimal"
+    },
+    "total_price": {
+      "type": "float"
+    },
+    "net": {
+      "type": "decimal"
+    },
+    "hab": {
+      "type": "float"
+    },
+    "dal": {
+      "type": "float"
+    },
+    "batch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "canceled_weighings"
+    },
+    "procurement": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::procurement.procurement",
+      "inversedBy": "canceled_weighings"
+    },
+    "tax": {
+      "type": "float"
+    },
+    "cash_transaction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cash-transaction.cash-transaction",
+      "mappedBy": "canceled_weighing"
+    }
+  }
+}

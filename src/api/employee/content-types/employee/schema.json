@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Employee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "hourly_rate": {
+      "type": "decimal"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "total_salary": {
+      "type": "decimal"
+    },
+    "total_seconds": {
+      "type": "decimal"
+    },
+    "total_paid": {
+      "type": "decimal"
+    },
+    "timesheets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::timesheet.timesheet",
+      "mappedBy": "employee"
+    },
+    "total_balance": {
+      "type": "decimal"
+    },
+    "cin": {
+      "type": "string"
+    },
+    "cnss": {
+      "type": "string"
+    },
+    "employee_payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee-payment.employee-payment",
+      "mappedBy": "employee"
+    }
+  }
+}

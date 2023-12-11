@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transports",
+  "info": {
+    "singularName": "transport",
+    "pluralName": "transports",
+    "displayName": "Transport Batch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "out_transports"
+    },
+    "to": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "in_transports"
+    },
+    "weight": {
+      "type": "decimal",
+      "required": true
+    },
+    "vehicule": {
+      "type": "string"
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "receiver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "transportation_price": {
+      "type": "float"
+    },
+    "brut": {
+      "type": "float"
+    },
+    "tar": {
+      "type": "float"
+    },
+    "weighing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::weighing.weighing",
+      "inversedBy": "transport_batch"
+    }
+  }
+}

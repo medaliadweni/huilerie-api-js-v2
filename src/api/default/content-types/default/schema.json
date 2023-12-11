@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "defaults",
+  "info": {
+    "singularName": "default",
+    "pluralName": "defaults",
+    "displayName": "Default"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "oil_base_price": {
+      "type": "float"
+    },
+    "olive_procurement_tax": {
+      "type": "float"
+    }
+  }
+}

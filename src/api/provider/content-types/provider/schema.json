@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "providers",
+  "info": {
+    "singularName": "provider",
+    "pluralName": "providers",
+    "displayName": "Provider",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "credit": {
+      "type": "decimal",
+      "default": 0
+    },
+    "total": {
+      "type": "decimal",
+      "default": 0
+    },
+    "tel": {
+      "type": "string"
+    },
+    "cin": {
+      "type": "string"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "procurements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::procurement.procurement",
+      "mappedBy": "provider"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "providers"
+    }
+  }
+}

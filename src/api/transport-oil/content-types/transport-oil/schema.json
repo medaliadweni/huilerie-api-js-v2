@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transport_oils",
+  "info": {
+    "singularName": "transport-oil",
+    "pluralName": "transport-oils",
+    "displayName": "Transport Oil",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "weight": {
+      "type": "float"
+    },
+    "receiver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "to": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "out_transport_oils"
+    },
+    "from": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "in_transport_oils"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "transportation_price": {
+      "type": "float"
+    },
+    "batch": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::batch.batch",
+      "inversedBy": "transport_oils"
+    },
+    "order_by": {
+      "type": "integer"
+    },
+    "transport_oil_acitivity": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::transport-oil-acitivity.transport-oil-acitivity",
+      "inversedBy": "transport_oils"
+    }
+  }
+}

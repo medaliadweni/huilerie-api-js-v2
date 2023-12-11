@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sale_payements",
+  "info": {
+    "singularName": "sale-payement",
+    "pluralName": "sale-payements",
+    "displayName": "SalePayement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "sale_payements"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CASH",
+        "CHEQUE",
+        "TRANSFER",
+        "EFFECT"
+      ]
+    },
+    "comment": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

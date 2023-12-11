@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "production_orders",
+  "info": {
+    "singularName": "production-order",
+    "pluralName": "production-orders",
+    "displayName": "ProductionOrder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "batch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::batch.batch"
+    },
+    "containers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::container.container",
+      "inversedBy": "production_orders"
+    },
+    "time": {
+      "type": "datetime"
+    },
+    "machine": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::machine.machine",
+      "inversedBy": "production_orders"
+    },
+    "production_order_containers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::production-order-container.production-order-container",
+      "mappedBy": "production_order"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "DEFAULT",
+        "ON",
+        "OFF"
+      ],
+      "default": "DEFAULT"
+    }
+  }
+}

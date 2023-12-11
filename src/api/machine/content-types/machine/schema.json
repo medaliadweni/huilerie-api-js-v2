@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "machines",
+  "info": {
+    "singularName": "machine",
+    "pluralName": "machines",
+    "displayName": "Machine",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ref": {
+      "type": "string"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "ON",
+        "OFF"
+      ]
+    },
+    "production_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::production-order.production-order",
+      "mappedBy": "machine"
+    }
+  }
+}

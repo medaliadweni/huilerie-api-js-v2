@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_payments",
+  "info": {
+    "singularName": "customer-payment",
+    "pluralName": "customer-payments",
+    "displayName": "Customer Payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer"
+    }
+  }
+}

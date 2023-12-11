@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tanks",
+  "info": {
+    "singularName": "tank",
+    "pluralName": "tanks",
+    "displayName": "Tank",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oil.oil",
+      "mappedBy": "tank"
+    },
+    "weight": {
+      "type": "float"
+    },
+    "k_first": {
+      "type": "float"
+    },
+    "acidity": {
+      "type": "float"
+    },
+    "out_transport_oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil.transport-oil",
+      "mappedBy": "to"
+    },
+    "in_transport_oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil.transport-oil",
+      "mappedBy": "from"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "tanks"
+    },
+    "k_second": {
+      "type": "decimal"
+    },
+    "degustation": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "sales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale.sale",
+      "mappedBy": "tank"
+    },
+    "transport_oil_acitivities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil-acitivity.transport-oil-acitivity",
+      "mappedBy": "from"
+    },
+    "out_transport_oil_acitivities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil-acitivity.transport-oil-acitivity",
+      "mappedBy": "to"
+    }
+  }
+}

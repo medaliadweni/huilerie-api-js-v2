@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transport_oil_acitivities",
+  "info": {
+    "singularName": "transport-oil-acitivity",
+    "pluralName": "transport-oil-acitivities",
+    "displayName": "Transport Oil Acitivity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "weight": {
+      "type": "float"
+    },
+    "receiver": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "sender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "to": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "out_transport_oil_acitivities"
+    },
+    "from": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tank.tank",
+      "inversedBy": "transport_oil_acitivities"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "transportation_price": {
+      "type": "float"
+    },
+    "transport_oils": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transport-oil.transport-oil",
+      "mappedBy": "transport_oil_acitivity"
+    }
+  }
+}

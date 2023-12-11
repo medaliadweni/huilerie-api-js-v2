@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "procurements",
+  "info": {
+    "singularName": "procurement",
+    "pluralName": "procurements",
+    "displayName": "Procurement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "weighings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::weighing.weighing",
+      "mappedBy": "procurement"
+    },
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::provider.provider",
+      "inversedBy": "procurements"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "total_price": {
+      "type": "float",
+      "default": 0
+    },
+    "total_net_weight": {
+      "type": "float",
+      "default": 0
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "IN_PROGRESS",
+        "PAID",
+        "CANCELED",
+        "CANCELED_PAID"
+      ]
+    },
+    "plate_number": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "net_price": {
+      "type": "float"
+    },
+    "total_price_provider": {
+      "type": "float"
+    },
+    "canceled_weighings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::canceled-weighing.canceled-weighing",
+      "mappedBy": "procurement"
+    },
+    "procurement_payment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::procurement-payment.procurement-payment",
+      "inversedBy": "procurements"
+    }
+  }
+}
